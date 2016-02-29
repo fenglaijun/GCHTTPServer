@@ -147,15 +147,22 @@ void recvData(int socketfd) {
         int code = getStatusCode(path, &fid,&fsize);
         string contentType = getContentType(path);
         printf("%s\n",contentType.c_str());
-        struct stat fileStat;
-        fstat(fid, &fileStat);
-        time_t t = fileStat.st_mtimespec.tv_sec;
+        time_t t;
+        if (code == 404) {
+            t = time(0);
+        }else {
+            struct stat fileStat;
+            fstat(fid, &fileStat);
+            t = fileStat.st_mtimespec.tv_sec;
+        }
         struct tm *ltm = gmtime(&t);
         char s[80];
         strftime(s, 80, "%a, %d %b %Y %H:%M:%S %Z", ltm);
         string headers = getResponseHeaders(code,contentType,fsize,s);
         sendResponseData(socketfd,headers);
-        transferFile(socketfd, fid);
+        if (code != 404) {
+            transferFile(socketfd, fid);
+        }
         close(socketfd);
     }
 }
@@ -213,9 +220,14 @@ void transferFile(int socketid,int fid) {
 
 int getStatusCode(char *path,int *fid,long *fsize) {
     printf("%s ",path);
+    if (strlen(path)==1 && path[0] == '/') {
+        *fsize = 0;
+        return 404;
+    }
     string filePath = string(documentRootPath)+string(path);
     FILE *file = fopen(filePath.c_str(), "r");
     if (file == NULL) {
+        *fsize = 0;
         return 404;
     }else {
         fseek(file, 0, SEEK_END);//将文件指针移到文件结尾
@@ -251,7 +263,7 @@ string getContentType(char *path) {
 
 /// 是否已指定字符串结尾
 bool endWith(string str,const string strEnd) {
-    if (str.empty() || strEnd.empty()) {
+    if (str.empty() || strEnd.empty() || str.size() < strEnd.size()) {
         return false;
     }
     return str.compare(str.size()-strEnd.size(),strEnd.size(),strEnd)==0;
