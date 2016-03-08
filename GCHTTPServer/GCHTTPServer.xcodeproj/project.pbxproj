@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A607ECC1C87E408007FECC7 /* GCAsyncSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A607ECA1C87E408007FECC7 /* GCAsyncSocket.cpp */; };
+		3A607ECD1C87E408007FECC7 /* GCAsyncSocket.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3A607ECB1C87E408007FECC7 /* GCAsyncSocket.hpp */; };
+		3A607ED01C8807CB007FECC7 /* GCEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */; };
+		3A607ED11C8807CB007FECC7 /* GCEvent.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3A607ECF1C8807CB007FECC7 /* GCEvent.hpp */; };
 		3AB1DD721C7ECB510016F659 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB1DD711C7ECB510016F659 /* CFNetwork.framework */; };
 		3AB1DD751C7F00AB0016F659 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1DD741C7F00AB0016F659 /* index.html */; };
 		3AEB8D111C7EC17C0042944E /* GCHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEB8D101C7EC17C0042944E /* GCHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A607ECA1C87E408007FECC7 /* GCAsyncSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GCAsyncSocket.cpp; sourceTree = "<group>"; };
+		3A607ECB1C87E408007FECC7 /* GCAsyncSocket.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GCAsyncSocket.hpp; sourceTree = "<group>"; };
+		3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GCEvent.cpp; sourceTree = "<group>"; };
+		3A607ECF1C8807CB007FECC7 /* GCEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GCEvent.hpp; sourceTree = "<group>"; };
 		3AB1DD711C7ECB510016F659 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3AB1DD741C7F00AB0016F659 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		3AEB8D0D1C7EC17C0042944E /* GCHTTPServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GCHTTPServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +77,10 @@
 				3AEB8D531C7EC32B0042944E /* GCHTTPSocket.mm */,
 				3AEB8D121C7EC17C0042944E /* Info.plist */,
 				3AB1DD741C7F00AB0016F659 /* index.html */,
+				3A607ECB1C87E408007FECC7 /* GCAsyncSocket.hpp */,
+				3A607ECA1C87E408007FECC7 /* GCAsyncSocket.cpp */,
+				3A607ECF1C8807CB007FECC7 /* GCEvent.hpp */,
+				3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */,
 			);
 			path = GCHTTPServer;
 			sourceTree = "<group>";
@@ -81,6 +93,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AEB8D111C7EC17C0042944E /* GCHTTPServer.h in Headers */,
+				3A607ED11C8807CB007FECC7 /* GCEvent.hpp in Headers */,
+				3A607ECD1C87E408007FECC7 /* GCAsyncSocket.hpp in Headers */,
 				3AEB8D541C7EC32B0042944E /* GCHTTPSocket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +185,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AEB8D551C7EC32B0042944E /* GCHTTPSocket.mm in Sources */,
+				3A607ECC1C87E408007FECC7 /* GCAsyncSocket.cpp in Sources */,
+				3A607ED01C8807CB007FECC7 /* GCEvent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

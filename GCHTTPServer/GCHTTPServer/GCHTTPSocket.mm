@@ -16,12 +16,12 @@
 #import <vector>
 #import <array>
 #import <sys/stat.h>
-
+#import "GCAsyncSocket.hpp"
 using namespace std;
 
 static int socketFD;
 static bool isRuning = false;
-const char *documentRootPath;//HTTP服务根目录
+unique_ptr<GCAsyncSocket> asyncSocket(new GCAsyncSocket());
 
 @interface GCHTTPSocket () {
     dispatch_queue_t serverQueue;
@@ -36,21 +36,25 @@ const char *documentRootPath;//HTTP服务根目录
     self = [super init];
     if (self) {
         //documentRootPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0].UTF8String;
-        documentRootPath = "/Users/xiaofeng/Documents/18bg/iphone/Workspace/Office_V4.0/Office/Class/ViewControllers/WebApp/WebResource";
+        asyncSocket->rootPath = "/Users/xiaofeng/Documents/18bg/iphone/Workspace/Office_V4.0/Office/Class/ViewControllers/WebApp/WebResource";
         serverQueue = dispatch_queue_create("GCHTTPServerQueue", NULL);
-        _interface = @"127.0.0.1";
-        _port = 8888;
-        [self initSocket];
+        asyncSocket->addr = "127.0.0.1";
+        asyncSocket->port = 8888;
+        asyncSocket->onAccpeted += ActionBind(&onAccept);
     }
     return self;
 }
 
+void onAccept(int sockid) {
+    recvData(sockid);
+}
+
 - (void)setRootPath:(NSString *)rootPath {
-    documentRootPath = rootPath.UTF8String;
+    asyncSocket->rootPath = rootPath.UTF8String;
 }
 
 - (NSString *)rootPath {
-    return [NSString stringWithUTF8String:documentRootPath];
+    return [NSString stringWithUTF8String:asyncSocket->rootPath.c_str()];
 }
 
 - (sockaddr_in)getAddress {
@@ -63,46 +67,12 @@ const char *documentRootPath;//HTTP服务根目录
     return addr4;
 }
 
-- (void)initSocket {
-    socketFD = socket(AF_INET, SOCK_STREAM, 0);
-    //fcntl(socketFD, F_SETFL,O_NONBLOCK);
-    int optval = 1;
-    setsockopt(socketFD, SOL_SOCKET, SO_REUSEADDR,// 允许重用本地地址和端口
-               (void *)&optval, sizeof(optval));
-    if (socketFD == -1) {
-        printf("Error in socket() function");
-    }
-}
-
 - (BOOL)startServer {
-    if (socketFD != -1) {
-        sockaddr_in address = [self getAddress];
-        socklen_t addrlen = sizeof(address);
-        const struct sockaddr *sockaddr4 = (const struct sockaddr*)&address;
-        int result = bind(socketFD, sockaddr4,addrlen);
-        if (result == -1) {
-            NSLog(@"Bind to address failed!");
-            close(socketFD);
-            return NO;
-        }
-        //开始监听
-        int status = listen(socketFD, 20);
-        if (status != -1) {
-            __weak typeof(self) self_weak = self;
-            dispatch_async(serverQueue, ^{
-                isRuning = YES;
-                [self_weak doAccept];
-            });
-        }else {
-            printf("call error in listen()");
-        }
-    }
-    return YES;
+    return asyncSocket->startServer();
 }
 
 - (BOOL)stop {
-    isRuning = false;
-    return YES;
+    return asyncSocket->stopServer();
 }
 
 - (void)doAccept {
@@ -186,7 +156,7 @@ string getResponseHeaders(int code,string contentType,long length,char *time) {
 }
 string getResponseBody(char *path,int* code) {
     printf("%s ",path);
-    string filePath = string(documentRootPath)+string(path);
+    string filePath = asyncSocket->rootPath+string(path);
     if (fopen(filePath.c_str(), "r")==NULL) {
         *code = 404;
         return "";
@@ -220,11 +190,11 @@ void transferFile(int socketid,int fid) {
 
 int getStatusCode(char *path,int *fid,long *fsize) {
     printf("%s ",path);
-    if (strlen(path)==1 && path[0] == '/') {
+    if (path == NULL || ( strlen(path)==1 && path[0] == '/')) {
         *fsize = 0;
         return 404;
     }
-    string filePath = string(documentRootPath)+string(path);
+    string filePath = asyncSocket->rootPath+string(path);
     FILE *file = fopen(filePath.c_str(), "r");
     if (file == NULL) {
         *fsize = 0;
@@ -238,7 +208,7 @@ int getStatusCode(char *path,int *fid,long *fsize) {
     }
 }
 
-string getStatusText(int code) {
+static string getStatusText(int code) {
     switch (code) {
         case 301:return "Moved Permanently";
         case 302:return "Move temporarily";
