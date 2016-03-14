@@ -68,7 +68,10 @@ void onAccept(int sockid) {
 }
 
 - (BOOL)startServer {
-    return asyncSocket->startServer();
+    dispatch_async(serverQueue, ^{
+       asyncSocket->startServer();
+    });
+    return YES;
 }
 
 - (BOOL)stop {

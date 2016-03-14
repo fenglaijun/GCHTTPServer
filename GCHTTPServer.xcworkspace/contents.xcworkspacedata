@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:GCHTTPServer/GCHTTPServer.xcodeproj">
+      location = "group:GCHTTPServerDemo/GCHTTPServerDemo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:GCHTTPServerDemo/GCHTTPServerDemo.xcodeproj">
+      location = "group:GCHTTPServer/GCHTTPServer.xcodeproj">
    </FileRef>
 </Workspace>
