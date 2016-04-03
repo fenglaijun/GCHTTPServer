@@ -1,2 +1,2 @@
 # GCHTTPServer
-A small, lightweight, embeddable HTTP server for Mac OS X or iOS applications
+A small, lightweight, embeddable HTTP Server for Mac OS X or iOS applications
