@@ -19,7 +19,7 @@ class GCAsyncSocket {
 public:
     /// 监听端口
     int port;
-    /// 监听IP地址
+    /// 监听IP地址,默认0.0.0.0
     string addr;
     /// 服务器根目录
     string rootPath;

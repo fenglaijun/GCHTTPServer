@@ -35,10 +35,8 @@ unique_ptr<GCAsyncSocket> asyncSocket(new GCAsyncSocket());
 {
     self = [super init];
     if (self) {
-        //documentRootPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0].UTF8String;
-        asyncSocket->rootPath = "/Users/xiaofeng/Documents/18bg/iphone/Workspace/Office_V4.0/Office/Class/ViewControllers/WebApp/WebResource";
         serverQueue = dispatch_queue_create("GCHTTPServerQueue", NULL);
-        asyncSocket->addr = "127.0.0.1";
+        //asyncSocket->addr = "127.0.0.1";
         asyncSocket->port = 8888;
         asyncSocket->onAccpeted += ActionBind(&onAccept);
     }
@@ -152,6 +150,7 @@ string getResponseHeaders(int code,string contentType,long length,char *time) {
     str += "Content-Type: "+contentType+"\n";
     str += "Server: GCHTTPServer/1.0\n";
     str += "Date: "+string(time)+"\n";
+    str += "Last-modified: "+string(time)+"\n";
     sprintf(t, "%ld",length);
     s = t;
     str += "Content-Length: "+s+"\n\n";

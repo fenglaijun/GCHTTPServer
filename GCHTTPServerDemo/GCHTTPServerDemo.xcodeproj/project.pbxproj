@@ -15,6 +15,7 @@
 		3AEB8D341C7EC1A50042944E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8D321C7EC1A50042944E /* LaunchScreen.storyboard */; };
 		3AEB8D3F1C7EC1A50042944E /* GCHTTPServerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8D3E1C7EC1A50042944E /* GCHTTPServerDemoTests.m */; };
 		3AEB8D571C7EC36F0042944E /* GCHTTPServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB8D561C7EC36F0042944E /* GCHTTPServer.framework */; };
+		FA7CB0911CB0E2D900A811E9 /* WebResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA7CB0901CB0E2D900A811E9 /* WebResource.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		3AEB8D3E1C7EC1A50042944E /* GCHTTPServerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCHTTPServerDemoTests.m; sourceTree = "<group>"; };
 		3AEB8D401C7EC1A50042944E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AEB8D561C7EC36F0042944E /* GCHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCHTTPServer.framework; path = "../GCHTTPServer/build/Debug-iphoneos/GCHTTPServer.framework"; sourceTree = "<group>"; };
+		FA7CB0901CB0E2D900A811E9 /* WebResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WebResource.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				3ADAE9FC1C9166CD00FC75ED /* ViewController.h */,
 				3ADAE9FD1C9166CD00FC75ED /* ViewController.m */,
 				3ADAE9FE1C9166CD00FC75ED /* ViewController.xib */,
+				FA7CB0901CB0E2D900A811E9 /* WebResource.bundle */,
 				3AEB8D301C7EC1A50042944E /* Assets.xcassets */,
 				3AEB8D321C7EC1A50042944E /* LaunchScreen.storyboard */,
 				3AEB8D351C7EC1A50042944E /* Info.plist */,
@@ -205,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7CB0911CB0E2D900A811E9 /* WebResource.bundle in Resources */,
 				3AEB8D341C7EC1A50042944E /* LaunchScreen.storyboard in Resources */,
 				3ADAEA001C9166CD00FC75ED /* ViewController.xib in Resources */,
 				3AEB8D311C7EC1A50042944E /* Assets.xcassets in Resources */,

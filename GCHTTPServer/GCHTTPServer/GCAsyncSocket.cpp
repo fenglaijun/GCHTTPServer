@@ -21,14 +21,14 @@ sockaddr_in getSockAddr(char *addrStr,int port) {
     memset(&addr4, 0, sizeof(addr4));
     addr4.sin_len = sizeof(addr4);
     addr4.sin_family = AF_INET;
-    addr4.sin_addr.s_addr = inet_addr(addrStr);
+    addr4.sin_addr.s_addr = addrStr == "0.0.0.0"?INADDR_ANY:inet_addr(addrStr);
     addr4.sin_port = htons(port);
     return addr4;
 }
 
 GCAsyncSocket::GCAsyncSocket() {
     port = 8888;
-    addr = "127.0.0.1";
+    addr = "0.0.0.0";//127.0.0.1
     rootPath = "";
     sockid = socket(AF_INET, SOCK_STREAM, 0);
     //fcntl(socketFD, F_SETFL,O_NONBLOCK);
