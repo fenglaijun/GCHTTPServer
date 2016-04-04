@@ -35,7 +35,6 @@
     __block NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/index.html"];
     [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSString *html = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        html = [html stringByReplacingOccurrencesOfString:@"</html>" withString:@"</html>\n<script src=\"/localscript.js\"></script>"];
         [self_weak.webView loadHTMLString:html baseURL:url];
     }] resume];
 }
