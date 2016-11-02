@@ -49,11 +49,13 @@ bool GCAsyncSocket::startServer() {
         int result = bind(sockid, sockaddr4,addrlen);
         if (result == -1) {
             close(sockid);
+            printf("[GSver] bind error:%s:%d",address.sin_addr,address.sin_port);
             return false;
         }
         //开始监听
         int status = listen(sockid, 20);
         if (status != -1) {
+            printf("GCHTTPServer started...");
             isRunning = true;
             beginSocketAccept();
         }else {

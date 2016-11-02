@@ -17,7 +17,7 @@ using namespace std;
 /// 异步套接字对象
 class GCAsyncSocket {
 public:
-    /// 监听端口
+    /// 监听端口，默认8888
     int port;
     /// 监听IP地址,默认0.0.0.0
     string addr;

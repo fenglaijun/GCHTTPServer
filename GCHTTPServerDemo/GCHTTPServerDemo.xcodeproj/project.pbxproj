@@ -15,6 +15,7 @@
 		3AEB8D341C7EC1A50042944E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB8D321C7EC1A50042944E /* LaunchScreen.storyboard */; };
 		3AEB8D3F1C7EC1A50042944E /* GCHTTPServerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8D3E1C7EC1A50042944E /* GCHTTPServerDemoTests.m */; };
 		3AEB8D571C7EC36F0042944E /* GCHTTPServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB8D561C7EC36F0042944E /* GCHTTPServer.framework */; };
+		FA4292741CC86BAF00DC8DB1 /* GCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4292731CC86BAF00DC8DB1 /* GCObject.m */; };
 		FA7CB0911CB0E2D900A811E9 /* WebResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA7CB0901CB0E2D900A811E9 /* WebResource.bundle */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,8 @@
 		3AEB8D3E1C7EC1A50042944E /* GCHTTPServerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCHTTPServerDemoTests.m; sourceTree = "<group>"; };
 		3AEB8D401C7EC1A50042944E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AEB8D561C7EC36F0042944E /* GCHTTPServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCHTTPServer.framework; path = "../GCHTTPServer/build/Debug-iphoneos/GCHTTPServer.framework"; sourceTree = "<group>"; };
+		FA4292721CC86BAF00DC8DB1 /* GCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCObject.h; sourceTree = "<group>"; };
+		FA4292731CC86BAF00DC8DB1 /* GCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCObject.m; sourceTree = "<group>"; };
 		FA7CB0901CB0E2D900A811E9 /* WebResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WebResource.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +97,7 @@
 				3ADAE9FD1C9166CD00FC75ED /* ViewController.m */,
 				3ADAE9FE1C9166CD00FC75ED /* ViewController.xib */,
 				FA7CB0901CB0E2D900A811E9 /* WebResource.bundle */,
+				FA1195CE1CD84C5800BB83D1 /* ARCResearch */,
 				3AEB8D301C7EC1A50042944E /* Assets.xcassets */,
 				3AEB8D321C7EC1A50042944E /* LaunchScreen.storyboard */,
 				3AEB8D351C7EC1A50042944E /* Info.plist */,
@@ -126,6 +130,15 @@
 				3AEB8D561C7EC36F0042944E /* GCHTTPServer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA1195CE1CD84C5800BB83D1 /* ARCResearch */ = {
+			isa = PBXGroup;
+			children = (
+				FA4292721CC86BAF00DC8DB1 /* GCObject.h */,
+				FA4292731CC86BAF00DC8DB1 /* GCObject.m */,
+			);
+			name = ARCResearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +244,7 @@
 			files = (
 				3ADAE9FF1C9166CD00FC75ED /* ViewController.m in Sources */,
 				3AEB8D291C7EC1A50042944E /* AppDelegate.m in Sources */,
+				FA4292741CC86BAF00DC8DB1 /* GCObject.m in Sources */,
 				3AEB8D261C7EC1A50042944E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
