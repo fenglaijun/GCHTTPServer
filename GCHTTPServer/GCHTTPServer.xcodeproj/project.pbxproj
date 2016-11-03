@@ -16,6 +16,14 @@
 		3AEB8D111C7EC17C0042944E /* GCHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEB8D101C7EC17C0042944E /* GCHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AEB8D541C7EC32B0042944E /* GCHTTPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEB8D521C7EC32B0042944E /* GCHTTPSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AEB8D551C7EC32B0042944E /* GCHTTPSocket.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8D531C7EC32B0042944E /* GCHTTPSocket.mm */; };
+		A9D493B71DCB6EC9007EE79C /* COAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = A9D493B51DCB6EC9007EE79C /* COAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9D493EA1DCB7203007EE79C /* GCHTTPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEB8D521C7EC32B0042944E /* GCHTTPSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9D493F01DCB735A007EE79C /* GCAsyncSocket.cpp in Headers */ = {isa = PBXBuildFile; fileRef = 3A607ECA1C87E408007FECC7 /* GCAsyncSocket.cpp */; };
+		A9D493F11DCB7362007EE79C /* GCEvent.cpp in Headers */ = {isa = PBXBuildFile; fileRef = 3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */; };
+		A9D493F21DCB7418007EE79C /* GCHTTPSocket.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8D531C7EC32B0042944E /* GCHTTPSocket.mm */; };
+		A9D493F31DCB741B007EE79C /* GCAsyncSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A607ECA1C87E408007FECC7 /* GCAsyncSocket.cpp */; };
+		A9D493F41DCB741D007EE79C /* GCEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */; };
+		A9D493F51DCB76F5007EE79C /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1DD741C7F00AB0016F659 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +38,9 @@
 		3AEB8D121C7EC17C0042944E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AEB8D521C7EC32B0042944E /* GCHTTPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHTTPSocket.h; sourceTree = "<group>"; };
 		3AEB8D531C7EC32B0042944E /* GCHTTPSocket.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GCHTTPSocket.mm; sourceTree = "<group>"; };
+		A9D493B31DCB6EC9007EE79C /* COAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = COAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D493B51DCB6EC9007EE79C /* COAsyncSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COAsyncSocket.h; sourceTree = "<group>"; };
+		A9D493B61DCB6EC9007EE79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +49,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB1DD721C7ECB510016F659 /* CFNetwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D493AF1DCB6EC9007EE79C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				3AEB8D0F1C7EC17C0042944E /* GCHTTPServer */,
+				A9D493B41DCB6EC9007EE79C /* COAsyncSocket */,
 				3AB1DD731C7F00990016F659 /* Frameworks */,
 				3AEB8D0E1C7EC17C0042944E /* Products */,
 			);
@@ -65,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				3AEB8D0D1C7EC17C0042944E /* GCHTTPServer.framework */,
+				A9D493B31DCB6EC9007EE79C /* COAsyncSocket.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +105,15 @@
 			path = GCHTTPServer;
 			sourceTree = "<group>";
 		};
+		A9D493B41DCB6EC9007EE79C /* COAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				A9D493B51DCB6EC9007EE79C /* COAsyncSocket.h */,
+				A9D493B61DCB6EC9007EE79C /* Info.plist */,
+			);
+			path = COAsyncSocket;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -96,6 +125,17 @@
 				3A607ED11C8807CB007FECC7 /* GCEvent.hpp in Headers */,
 				3A607ECD1C87E408007FECC7 /* GCAsyncSocket.hpp in Headers */,
 				3AEB8D541C7EC32B0042944E /* GCHTTPSocket.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D493B01DCB6EC9007EE79C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D493B71DCB6EC9007EE79C /* COAsyncSocket.h in Headers */,
+				A9D493EA1DCB7203007EE79C /* GCHTTPSocket.h in Headers */,
+				A9D493F01DCB735A007EE79C /* GCAsyncSocket.cpp in Headers */,
+				A9D493F11DCB7362007EE79C /* GCEvent.cpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +161,24 @@
 			productReference = 3AEB8D0D1C7EC17C0042944E /* GCHTTPServer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		A9D493B21DCB6EC9007EE79C /* COAsyncSocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9D493BA1DCB6EC9007EE79C /* Build configuration list for PBXNativeTarget "COAsyncSocket" */;
+			buildPhases = (
+				A9D493AE1DCB6EC9007EE79C /* Sources */,
+				A9D493AF1DCB6EC9007EE79C /* Frameworks */,
+				A9D493B01DCB6EC9007EE79C /* Headers */,
+				A9D493B11DCB6EC9007EE79C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = COAsyncSocket;
+			productName = COAsyncSocket;
+			productReference = A9D493B31DCB6EC9007EE79C /* COAsyncSocket.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -132,6 +190,10 @@
 				TargetAttributes = {
 					3AEB8D0C1C7EC17C0042944E = {
 						CreatedOnToolsVersion = 7.2;
+					};
+					A9D493B21DCB6EC9007EE79C = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -148,6 +210,7 @@
 			projectRoot = "";
 			targets = (
 				3AEB8D0C1C7EC17C0042944E /* GCHTTPServer */,
+				A9D493B21DCB6EC9007EE79C /* COAsyncSocket */,
 			);
 		};
 /* End PBXProject section */
@@ -158,6 +221,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB1DD751C7F00AB0016F659 /* index.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D493B11DCB6EC9007EE79C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D493F51DCB76F5007EE79C /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +258,16 @@
 				3AEB8D551C7EC32B0042944E /* GCHTTPSocket.mm in Sources */,
 				3A607ECC1C87E408007FECC7 /* GCAsyncSocket.cpp in Sources */,
 				3A607ED01C8807CB007FECC7 /* GCEvent.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D493AE1DCB6EC9007EE79C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D493F21DCB7418007EE79C /* GCHTTPSocket.mm in Sources */,
+				A9D493F31DCB741B007EE79C /* GCAsyncSocket.cpp in Sources */,
+				A9D493F41DCB741D007EE79C /* GCEvent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +394,56 @@
 			};
 			name = Release;
 		};
+		A9D493B81DCB6EC9007EE79C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = COAsyncSocket/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maintoco.COAsyncSocket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A9D493B91DCB6EC9007EE79C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = COAsyncSocket/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maintoco.COAsyncSocket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -333,6 +464,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A9D493BA1DCB6EC9007EE79C /* Build configuration list for PBXNativeTarget "COAsyncSocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D493B81DCB6EC9007EE79C /* Debug */,
+				A9D493B91DCB6EC9007EE79C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

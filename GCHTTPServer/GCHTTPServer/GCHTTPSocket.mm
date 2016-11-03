@@ -52,7 +52,14 @@ void onAccept(int sockid) {
     recvData(sockid);
 }
 
+- (void)setPort:(int)port {
+    asyncSocket->port = port;
+}
+
 - (void)setRootPath:(NSString *)rootPath {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:rootPath]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:rootPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
     asyncSocket->rootPath = rootPath.UTF8String;
 }
 
@@ -184,7 +191,7 @@ string getResponseHeaders(int code,string contentType,long length,const char *ti
     string s = t;
     string str("HTTP/1.1 "+s+" "+getStatusText(code)+"\n");
     str += "Content-Type: "+contentType+"\n";
-    str += "Server: GCHTTPServer/1.0\n";
+    str += "Server: " SVR_Version "\n";
     str += "Date: "+string(dateAsString([NSDate date]))+"\n";
     str += "Last-Modified: "+string(time)+"\n";
     str += "Cache-Control: max-age=1296000\n";

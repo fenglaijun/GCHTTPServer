@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define SVR_Version "COHTTPServer/1.0"
+
 @interface GCHTTPSocket : NSObject
 
 /// 监听地址,默认为127.0.0.1

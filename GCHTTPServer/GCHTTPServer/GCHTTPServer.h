@@ -6,8 +6,6 @@
 //  Copyright © 2016年 GC. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 //! Project version number for GCHTTPServer.
 FOUNDATION_EXPORT double GCHTTPServerVersionNumber;
 
@@ -15,4 +13,4 @@ FOUNDATION_EXPORT double GCHTTPServerVersionNumber;
 FOUNDATION_EXPORT const unsigned char GCHTTPServerVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <GCHTTPServer/PublicHeader.h>
-#import <GCHTTPServer/GCHTTPSocket.h>
+#import "GCHTTPSocket.h"

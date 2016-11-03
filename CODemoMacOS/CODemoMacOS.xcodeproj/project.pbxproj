@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9D493C91DCB6F24007EE79C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D493C81DCB6F24007EE79C /* AppDelegate.m */; };
+		A9D493CC1DCB6F24007EE79C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D493CB1DCB6F24007EE79C /* main.m */; };
+		A9D493CE1DCB6F24007EE79C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D493CD1DCB6F24007EE79C /* Assets.xcassets */; };
+		A9D493D11DCB6F24007EE79C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D493CF1DCB6F24007EE79C /* MainMenu.xib */; };
+		A9D493DC1DCB6F24007EE79C /* CODemoMacOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D493DB1DCB6F24007EE79C /* CODemoMacOSTests.m */; };
+		A9D493EC1DCB7276007EE79C /* COAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D493EB1DCB7276007EE79C /* COAsyncSocket.framework */; };
+		A9D493ED1DCB7276007EE79C /* COAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9D493EB1DCB7276007EE79C /* COAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9D493D81DCB6F24007EE79C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9D493BC1DCB6F24007EE79C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9D493C31DCB6F24007EE79C;
+			remoteInfo = CODemoMacOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A9D493EE1DCB7276007EE79C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A9D493ED1DCB7276007EE79C /* COAsyncSocket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A9D493C41DCB6F24007EE79C /* CODemoMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CODemoMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D493C71DCB6F24007EE79C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A9D493C81DCB6F24007EE79C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A9D493CB1DCB6F24007EE79C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A9D493CD1DCB6F24007EE79C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9D493D01DCB6F24007EE79C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A9D493D21DCB6F24007EE79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9D493D71DCB6F24007EE79C /* CODemoMacOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CODemoMacOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D493DB1DCB6F24007EE79C /* CODemoMacOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CODemoMacOSTests.m; sourceTree = "<group>"; };
+		A9D493DD1DCB6F24007EE79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9D493EB1DCB7276007EE79C /* COAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = COAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9D493C11DCB6F24007EE79C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D493EC1DCB7276007EE79C /* COAsyncSocket.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D493D41DCB6F24007EE79C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9D493BB1DCB6F24007EE79C = {
+			isa = PBXGroup;
+			children = (
+				A9D493C61DCB6F24007EE79C /* CODemoMacOS */,
+				A9D493DA1DCB6F24007EE79C /* CODemoMacOSTests */,
+				A9D493C51DCB6F24007EE79C /* Products */,
+				A9D493E61DCB6F4A007EE79C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A9D493C51DCB6F24007EE79C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9D493C41DCB6F24007EE79C /* CODemoMacOS.app */,
+				A9D493D71DCB6F24007EE79C /* CODemoMacOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9D493C61DCB6F24007EE79C /* CODemoMacOS */ = {
+			isa = PBXGroup;
+			children = (
+				A9D493C71DCB6F24007EE79C /* AppDelegate.h */,
+				A9D493C81DCB6F24007EE79C /* AppDelegate.m */,
+				A9D493CD1DCB6F24007EE79C /* Assets.xcassets */,
+				A9D493CF1DCB6F24007EE79C /* MainMenu.xib */,
+				A9D493D21DCB6F24007EE79C /* Info.plist */,
+				A9D493CA1DCB6F24007EE79C /* Supporting Files */,
+			);
+			path = CODemoMacOS;
+			sourceTree = "<group>";
+		};
+		A9D493CA1DCB6F24007EE79C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9D493CB1DCB6F24007EE79C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9D493DA1DCB6F24007EE79C /* CODemoMacOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9D493DB1DCB6F24007EE79C /* CODemoMacOSTests.m */,
+				A9D493DD1DCB6F24007EE79C /* Info.plist */,
+			);
+			path = CODemoMacOSTests;
+			sourceTree = "<group>";
+		};
+		A9D493E61DCB6F4A007EE79C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9D493EB1DCB7276007EE79C /* COAsyncSocket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9D493C31DCB6F24007EE79C /* CODemoMacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9D493E01DCB6F24007EE79C /* Build configuration list for PBXNativeTarget "CODemoMacOS" */;
+			buildPhases = (
+				A9D493C01DCB6F24007EE79C /* Sources */,
+				A9D493C11DCB6F24007EE79C /* Frameworks */,
+				A9D493C21DCB6F24007EE79C /* Resources */,
+				A9D493EE1DCB7276007EE79C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CODemoMacOS;
+			productName = CODemoMacOS;
+			productReference = A9D493C41DCB6F24007EE79C /* CODemoMacOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9D493D61DCB6F24007EE79C /* CODemoMacOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9D493E31DCB6F24007EE79C /* Build configuration list for PBXNativeTarget "CODemoMacOSTests" */;
+			buildPhases = (
+				A9D493D31DCB6F24007EE79C /* Sources */,
+				A9D493D41DCB6F24007EE79C /* Frameworks */,
+				A9D493D51DCB6F24007EE79C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9D493D91DCB6F24007EE79C /* PBXTargetDependency */,
+			);
+			name = CODemoMacOSTests;
+			productName = CODemoMacOSTests;
+			productReference = A9D493D71DCB6F24007EE79C /* CODemoMacOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9D493BC1DCB6F24007EE79C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = maintoco;
+				TargetAttributes = {
+					A9D493C31DCB6F24007EE79C = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					A9D493D61DCB6F24007EE79C = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A9D493C31DCB6F24007EE79C;
+					};
+				};
+			};
+			buildConfigurationList = A9D493BF1DCB6F24007EE79C /* Build configuration list for PBXProject "CODemoMacOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9D493BB1DCB6F24007EE79C;
+			productRefGroup = A9D493C51DCB6F24007EE79C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9D493C31DCB6F24007EE79C /* CODemoMacOS */,
+				A9D493D61DCB6F24007EE79C /* CODemoMacOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9D493C21DCB6F24007EE79C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D493CE1DCB6F24007EE79C /* Assets.xcassets in Resources */,
+				A9D493D11DCB6F24007EE79C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D493D51DCB6F24007EE79C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9D493C01DCB6F24007EE79C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D493CC1DCB6F24007EE79C /* main.m in Sources */,
+				A9D493C91DCB6F24007EE79C /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9D493D31DCB6F24007EE79C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D493DC1DCB6F24007EE79C /* CODemoMacOSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9D493D91DCB6F24007EE79C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9D493C31DCB6F24007EE79C /* CODemoMacOS */;
+			targetProxy = A9D493D81DCB6F24007EE79C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9D493CF1DCB6F24007EE79C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9D493D01DCB6F24007EE79C /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9D493DE1DCB6F24007EE79C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A9D493DF1DCB6F24007EE79C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A9D493E11DCB6F24007EE79C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CODemoMacOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maintoco.CODemoMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A9D493E21DCB6F24007EE79C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CODemoMacOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maintoco.CODemoMacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A9D493E41DCB6F24007EE79C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CODemoMacOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maintoco.CODemoMacOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CODemoMacOS.app/Contents/MacOS/CODemoMacOS";
+			};
+			name = Debug;
+		};
+		A9D493E51DCB6F24007EE79C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CODemoMacOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maintoco.CODemoMacOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CODemoMacOS.app/Contents/MacOS/CODemoMacOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9D493BF1DCB6F24007EE79C /* Build configuration list for PBXProject "CODemoMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D493DE1DCB6F24007EE79C /* Debug */,
+				A9D493DF1DCB6F24007EE79C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9D493E01DCB6F24007EE79C /* Build configuration list for PBXNativeTarget "CODemoMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D493E11DCB6F24007EE79C /* Debug */,
+				A9D493E21DCB6F24007EE79C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A9D493E31DCB6F24007EE79C /* Build configuration list for PBXNativeTarget "CODemoMacOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9D493E41DCB6F24007EE79C /* Debug */,
+				A9D493E51DCB6F24007EE79C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9D493BC1DCB6F24007EE79C /* Project object */;
+}
