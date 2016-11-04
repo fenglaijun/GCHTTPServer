@@ -21,7 +21,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     httpSocket = [[GCHTTPSocket alloc] init];
-    httpSocket.port = 8888;
+    httpSocket.port = 28000;
     //NSArray<NSString *> *documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSAllDomainsMask, NO);
     httpSocket.rootPath = [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/COHTTPServer"];
     [httpSocket startServer];

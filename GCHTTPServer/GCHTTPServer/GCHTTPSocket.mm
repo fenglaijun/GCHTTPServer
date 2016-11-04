@@ -57,8 +57,14 @@ void onAccept(int sockid) {
 }
 
 - (void)setRootPath:(NSString *)rootPath {
-    if (![[NSFileManager defaultManager] fileExistsAtPath:rootPath]) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:rootPath withIntermediateDirectories:YES attributes:nil error:nil];
+    NSFileManager *defaultMGR = [NSFileManager defaultManager];
+    if (![defaultMGR fileExistsAtPath:rootPath]) {
+        [defaultMGR createDirectoryAtPath:rootPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSString *indexFile = [rootPath stringByAppendingPathComponent:@"index.html"];
+    if (![defaultMGR fileExistsAtPath:indexFile]) {
+        NSBundle *coWeb = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"COWebResource.bundle" ofType:nil]];
+        [defaultMGR copyItemAtPath:[coWeb pathForResource:@"index.html" ofType:nil] toPath:indexFile error:nil];
     }
     asyncSocket->rootPath = rootPath.UTF8String;
 }
@@ -118,6 +124,10 @@ struct GCRequestHeader resolveRequestHeaders(UInt8 buffer[],bool& ifModified) {
         if (i==0) {
             char* p = strtok(headers[i], " ");
             reqHeader.path = strtok(NULL, " ");
+            ;
+            char path[100];
+            strncpy(path, reqHeader.path, strcspn(reqHeader.path, "?"));
+            path[strcspn(reqHeader.path, "?")] = '\0';
             reqHeader.lastModified = "";
             if (strcmp(reqHeader.path, "/") == 0) {
                 reqHeader.path = "/index.html";
@@ -272,8 +282,8 @@ static string getStatusText(int code) {
 }
 
 string getContentType(char *path) {
-    if (endWith(string(path), ".js")) {
-        return "application/x-javascript";
+    if (endWith(string(path), ".js") || endWith(string(path), ".json")) {
+        return "text/javascript";
     }else if (endWith(string(path), ".css")) {
         return "text/css";
     }else if (endWith(string(path), ".jpg")) {

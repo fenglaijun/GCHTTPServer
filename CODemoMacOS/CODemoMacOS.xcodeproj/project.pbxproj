@@ -14,6 +14,7 @@
 		A9D493DC1DCB6F24007EE79C /* CODemoMacOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D493DB1DCB6F24007EE79C /* CODemoMacOSTests.m */; };
 		A9D493EC1DCB7276007EE79C /* COAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D493EB1DCB7276007EE79C /* COAsyncSocket.framework */; };
 		A9D493ED1DCB7276007EE79C /* COAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9D493EB1DCB7276007EE79C /* COAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2EC4AC71DCC8D0000552AC8 /* COWebResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D2EC4AC61DCC8D0000552AC8 /* COWebResource.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		A9D493DB1DCB6F24007EE79C /* CODemoMacOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CODemoMacOSTests.m; sourceTree = "<group>"; };
 		A9D493DD1DCB6F24007EE79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D493EB1DCB7276007EE79C /* COAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = COAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2EC4AC61DCC8D0000552AC8 /* COWebResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = COWebResource.bundle; path = ../../GCHTTPServer/GCHTTPServer/COWebResource.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		A9D493C61DCB6F24007EE79C /* CODemoMacOS */ = {
 			isa = PBXGroup;
 			children = (
+				D2EC4AC61DCC8D0000552AC8 /* COWebResource.bundle */,
 				A9D493C71DCB6F24007EE79C /* AppDelegate.h */,
 				A9D493C81DCB6F24007EE79C /* AppDelegate.m */,
 				A9D493CD1DCB6F24007EE79C /* Assets.xcassets */,
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9D493CE1DCB6F24007EE79C /* Assets.xcassets in Resources */,
+				D2EC4AC71DCC8D0000552AC8 /* COWebResource.bundle in Resources */,
 				A9D493D11DCB6F24007EE79C /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +427,7 @@
 				A9D493E21DCB6F24007EE79C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9D493E31DCB6F24007EE79C /* Build configuration list for PBXNativeTarget "CODemoMacOSTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +436,7 @@
 				A9D493E51DCB6F24007EE79C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

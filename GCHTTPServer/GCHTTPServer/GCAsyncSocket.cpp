@@ -49,7 +49,7 @@ bool GCAsyncSocket::startServer() {
         int result = bind(sockid, sockaddr4,addrlen);
         if (result == -1) {
             close(sockid);
-            printf("[GSver] bind error:%s:%d",address.sin_addr,address.sin_port);
+            printf("[GSver] bind error:%s:%d",inet_ntoa(address.sin_addr),address.sin_port);
             return false;
         }
         //开始监听

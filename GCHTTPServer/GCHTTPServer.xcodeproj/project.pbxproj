@@ -12,7 +12,6 @@
 		3A607ED01C8807CB007FECC7 /* GCEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */; };
 		3A607ED11C8807CB007FECC7 /* GCEvent.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3A607ECF1C8807CB007FECC7 /* GCEvent.hpp */; };
 		3AB1DD721C7ECB510016F659 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB1DD711C7ECB510016F659 /* CFNetwork.framework */; };
-		3AB1DD751C7F00AB0016F659 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1DD741C7F00AB0016F659 /* index.html */; };
 		3AEB8D111C7EC17C0042944E /* GCHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEB8D101C7EC17C0042944E /* GCHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AEB8D541C7EC32B0042944E /* GCHTTPSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AEB8D521C7EC32B0042944E /* GCHTTPSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AEB8D551C7EC32B0042944E /* GCHTTPSocket.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8D531C7EC32B0042944E /* GCHTTPSocket.mm */; };
@@ -23,7 +22,8 @@
 		A9D493F21DCB7418007EE79C /* GCHTTPSocket.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8D531C7EC32B0042944E /* GCHTTPSocket.mm */; };
 		A9D493F31DCB741B007EE79C /* GCAsyncSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A607ECA1C87E408007FECC7 /* GCAsyncSocket.cpp */; };
 		A9D493F41DCB741D007EE79C /* GCEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */; };
-		A9D493F51DCB76F5007EE79C /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1DD741C7F00AB0016F659 /* index.html */; };
+		D2EC4AC31DCC88BD00552AC8 /* COWebResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D2EC4AC21DCC88BD00552AC8 /* COWebResource.bundle */; };
+		D2EC4AC41DCC8C9700552AC8 /* COWebResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D2EC4AC21DCC88BD00552AC8 /* COWebResource.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,6 @@
 		3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GCEvent.cpp; sourceTree = "<group>"; };
 		3A607ECF1C8807CB007FECC7 /* GCEvent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GCEvent.hpp; sourceTree = "<group>"; };
 		3AB1DD711C7ECB510016F659 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		3AB1DD741C7F00AB0016F659 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		3AEB8D0D1C7EC17C0042944E /* GCHTTPServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GCHTTPServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AEB8D101C7EC17C0042944E /* GCHTTPServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCHTTPServer.h; sourceTree = "<group>"; };
 		3AEB8D121C7EC17C0042944E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		A9D493B31DCB6EC9007EE79C /* COAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = COAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D493B51DCB6EC9007EE79C /* COAsyncSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COAsyncSocket.h; sourceTree = "<group>"; };
 		A9D493B61DCB6EC9007EE79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2EC4AC21DCC88BD00552AC8 /* COWebResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = COWebResource.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,11 +92,11 @@
 		3AEB8D0F1C7EC17C0042944E /* GCHTTPServer */ = {
 			isa = PBXGroup;
 			children = (
+				D2EC4AC21DCC88BD00552AC8 /* COWebResource.bundle */,
 				3AEB8D101C7EC17C0042944E /* GCHTTPServer.h */,
 				3AEB8D521C7EC32B0042944E /* GCHTTPSocket.h */,
 				3AEB8D531C7EC32B0042944E /* GCHTTPSocket.mm */,
 				3AEB8D121C7EC17C0042944E /* Info.plist */,
-				3AB1DD741C7F00AB0016F659 /* index.html */,
 				3A607ECB1C87E408007FECC7 /* GCAsyncSocket.hpp */,
 				3A607ECA1C87E408007FECC7 /* GCAsyncSocket.cpp */,
 				3A607ECF1C8807CB007FECC7 /* GCEvent.hpp */,
@@ -220,7 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AB1DD751C7F00AB0016F659 /* index.html in Resources */,
+				D2EC4AC31DCC88BD00552AC8 /* COWebResource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9D493F51DCB76F5007EE79C /* index.html in Resources */,
+				D2EC4AC41DCC8C9700552AC8 /* COWebResource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +472,7 @@
 				A9D493B91DCB6EC9007EE79C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
