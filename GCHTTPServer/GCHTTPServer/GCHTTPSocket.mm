@@ -108,8 +108,8 @@ void onAccept(int sockid) {
 }
 
 /// 处理请求头
-struct GCRequestHeader resolveRequestHeaders(UInt8 buffer[],bool& ifModified) {
-    char* pchar = strtok((char *)buffer, "\n");
+struct GCRequestHeader resolveRequestHeaders(char *buffer,bool& ifModified) {
+    char* pchar = strtok(buffer, "\n");
     vector<char*> headers;
     headers.push_back(pchar);
     while (pchar!=NULL) {
@@ -124,10 +124,10 @@ struct GCRequestHeader resolveRequestHeaders(UInt8 buffer[],bool& ifModified) {
         if (i==0) {
             char* p = strtok(headers[i], " ");
             reqHeader.path = strtok(NULL, " ");
-            ;
-            char path[100];
-            strncpy(path, reqHeader.path, strcspn(reqHeader.path, "?"));
-            path[strcspn(reqHeader.path, "?")] = '\0';
+            int pos = strcspn(reqHeader.path, "?");
+            char *np = (char *)malloc(pos);
+            strncpy(np, reqHeader.path, pos);
+            reqHeader.path = np;
             reqHeader.lastModified = "";
             if (strcmp(reqHeader.path, "/") == 0) {
                 reqHeader.path = "/index.html";
@@ -147,39 +147,53 @@ struct GCRequestHeader resolveRequestHeaders(UInt8 buffer[],bool& ifModified) {
 }
 
 void recvData(int socketfd) {
-    UInt8 buffer[1024];
-    ssize_t len = recv(socketfd, buffer, (size_t)sizeof(buffer), 0);
-    if (len >=0) {
-        bool ifModified;
-        struct GCRequestHeader reqHeader = resolveRequestHeaders(buffer,ifModified);
-        int fid = -1;
-        long fsize;
-        int code = getStatusCode(reqHeader, &fid,&fsize);
-        if (ifModified) {
-            code = 304;
+    char buffer[BUFFER_SIZE];
+    char *data = "";
+    do {
+        memset(buffer, 0, sizeof(buffer));
+        int len = recv(socketfd, buffer, sizeof(buffer), 0);
+        if (len > 0) {
+            char *p = (char *)malloc(strlen(data)+len+1);
+            if (strlen(data)>0) {
+                strcpy(p, data);
+            }
+            strcat(p, buffer);
+            data = p;
         }
-        string contentType = getContentType(reqHeader.path);
-        printf("%s\n",contentType.c_str());
-        time_t t;
-        if (code == 404) {
-            t = time(0);
-        }else {
-            struct stat fileStat;
-            fstat(fid, &fileStat);
-            t = fileStat.st_mtimespec.tv_sec;
+        if(len ==0 || len < BUFFER_SIZE) {
+            break;
         }
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:t];
-        struct tm *ltm = gmtime(&t);
-        char s[80];
-        strftime(s, 80, "%a, %d %b %Y %H:%M:%S %Z", ltm);
-        
-        string headers = getResponseHeaders(code,contentType,fsize,dateAsString(date));
-        sendResponseData(socketfd,headers);
-        if (code != 404 && code != 304) {
-            transferFile(socketfd, fid);
-        }
-        close(socketfd);
+    } while (true);
+    
+    bool ifModified;
+    struct GCRequestHeader reqHeader = resolveRequestHeaders(data,ifModified);
+    int fid = -1;
+    long fsize;
+    int code = getStatusCode(reqHeader, &fid,&fsize);
+    if (ifModified) {
+        code = 304;
     }
+    string contentType = getContentType(reqHeader.path);
+    COLog("%s",contentType.c_str());
+    time_t t;
+    if (code == 404) {
+        t = time(0);
+    }else {
+        struct stat fileStat;
+        fstat(fid, &fileStat);
+        t = fileStat.st_mtimespec.tv_sec;
+    }
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:t];
+    struct tm *ltm = gmtime(&t);
+    char s[80];
+    strftime(s, 80, "%a, %d %b %Y %H:%M:%S %Z", ltm);
+    
+    string headers = getResponseHeaders(code,contentType,fsize,dateAsString(date));
+    sendResponseData(socketfd,headers);
+    if (code != 404 && code != 304) {
+        transferFile(socketfd, fid);
+    }
+    close(socketfd);
 }
 
 const char* dateAsString(NSDate *date) {
@@ -199,19 +213,19 @@ string getResponseHeaders(int code,string contentType,long length,const char *ti
     char t[16];
     sprintf(t, "%d",code);
     string s = t;
-    string str("HTTP/1.1 "+s+" "+getStatusText(code)+"\n");
-    str += "Content-Type: "+contentType+"\n";
-    str += "Server: " SVR_Version "\n";
-    str += "Date: "+string(dateAsString([NSDate date]))+"\n";
-    str += "Last-Modified: "+string(time)+"\n";
-    str += "Cache-Control: max-age=1296000\n";
+    string str("HTTP/1.1 "+s+" "+getStatusText(code)+"\r\n");
+    str += "Content-Type: "+contentType+"\r\n";
+    str += "Server: " SVR_Version "\r\n";
+    str += "Date: "+string(dateAsString([NSDate date]))+"\r\n";
+    str += "Last-Modified: "+string(time)+"\r\n";
+    str += "Cache-Control: max-age=5\r\n";
     sprintf(t, "%ld",length);
     s = t;
-    str += "Content-Length: "+s+"\n\n";
+    str += "Content-Length: "+s+"\r\n\r\n";
     return str;
 }
 string getResponseBody(char *path,int* code) {
-    printf("%s ",path);
+    COLog("%s ",path);
     string filePath = asyncSocket->rootPath+string(path);
     if (fopen(filePath.c_str(), "r")==NULL) {
         *code = 404;

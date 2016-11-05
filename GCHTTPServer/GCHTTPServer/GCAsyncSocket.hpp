@@ -14,6 +14,10 @@
 #include <iostream>
 using namespace std;
 
+#define COLog(fmt,...) printf("[CO:%s]+%d " fmt "\n",__func__,__LINE__,##__VA_ARGS__)
+
+#define BUFFER_SIZE  50
+
 /// 异步套接字对象
 class GCAsyncSocket {
 public:
