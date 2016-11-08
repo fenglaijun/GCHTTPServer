@@ -1,11 +1,22 @@
 <html>
     <head>
         <title>Default on http://127.0.0.1:8888</title>
+        <script type="text/javascript" src="jquery-3.1.1.js?v=1.0"></script>
+        <script type="text/javascript">
+            $(function(){
+              });
+              function req() {
+                  for(var i=0;i<100;i++) {
+                      $.getJSON("demo.json",{"t":Math.random()},function(json){
+                                $("#result").append("<span>"+json.code+"</span><br/>");
+                                });
+                  }
+              }
+            </script>
     </head>
     <body>
-        <h2>GCHTTPServer/1.0</h2>
-        <form action="demo.json" method="post">
-            <input type="submit"></>
-        </form>
+        <h2>Welcome to use COHTTPServer/1.0</h2>
+        <a id＝"multiReq" href="javascript:req();">并发请求</a>
+        <div id="result"></div>
     </body>
 </html>

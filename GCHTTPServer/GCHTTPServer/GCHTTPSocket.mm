@@ -24,8 +24,8 @@ static bool isRuning = false;
 unique_ptr<GCAsyncSocket> asyncSocket(new GCAsyncSocket());
 
 struct GCRequestHeader {
-    char* path;
-    char* lastModified;
+    char *path;
+    char *lastModified;
 };
 
 @interface GCHTTPSocket () {
@@ -52,6 +52,10 @@ void onAccept(int sockid) {
     recvData(sockid);
 }
 
+- (int)port {
+    return asyncSocket->port;
+}
+
 - (void)setPort:(int)port {
     asyncSocket->port = port;
 }
@@ -61,11 +65,14 @@ void onAccept(int sockid) {
     if (![defaultMGR fileExistsAtPath:rootPath]) {
         [defaultMGR createDirectoryAtPath:rootPath withIntermediateDirectories:YES attributes:nil error:nil];
     }
-    NSString *indexFile = [rootPath stringByAppendingPathComponent:@"index.html"];
-    if (![defaultMGR fileExistsAtPath:indexFile]) {
-        NSBundle *coWeb = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"COWebResource.bundle" ofType:nil]];
-        [defaultMGR copyItemAtPath:[coWeb pathForResource:@"index.html" ofType:nil] toPath:indexFile error:nil];
+
+    NSBundle *coWeb = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"COWebResource.bundle" ofType:nil]];
+    for (NSURL *file in [coWeb URLsForResourcesWithExtension:nil subdirectory:nil]) {
+        if (![defaultMGR fileExistsAtPath:file.absoluteString]) {
+            [defaultMGR copyItemAtURL:file toURL:[NSURL fileURLWithPath:[rootPath stringByAppendingPathComponent:file.lastPathComponent]] error:nil];
+        }
     }
+    
     asyncSocket->rootPath = rootPath.UTF8String;
 }
 
@@ -109,11 +116,11 @@ void onAccept(int sockid) {
 
 /// 处理请求头
 struct GCRequestHeader resolveRequestHeaders(char *buffer,bool& ifModified) {
-    char* pchar = strtok(buffer, "\n");
+    char* pchar = strtok(buffer, "\r\n");
     vector<char*> headers;
     headers.push_back(pchar);
     while (pchar!=NULL) {
-        pchar = strtok(NULL, "\n");
+        pchar = strtok(NULL, "\r\n");
         if (pchar!=NULL) {
             headers.push_back(pchar);
         }
@@ -122,12 +129,20 @@ struct GCRequestHeader resolveRequestHeaders(char *buffer,bool& ifModified) {
     GCRequestHeader reqHeader;
     for (int i=0; i<headers.size(); i++) {
         if (i==0) {
-            char* p = strtok(headers[i], " ");
-            reqHeader.path = strtok(NULL, " ");
-            int pos = strcspn(reqHeader.path, "?");
-            char *np = (char *)malloc(pos);
-            strncpy(np, reqHeader.path, pos);
-            reqHeader.path = np;
+            char *action = (char *)malloc(strlen(headers[i])+1);
+            strncpy(action, headers[i], strlen(headers[i]));
+            char* p = strtok(action, " ");
+            p = strtok(NULL, " ");
+            char *np = strchr(p, '?');
+            if (np!=NULL) {
+                char data[255];
+                int n = np-p;
+                strncpy(data, p, np-p);
+                data[n] = '\0';
+                reqHeader.path = &data[0];
+            }else {
+                reqHeader.path = p;
+            }
             reqHeader.lastModified = "";
             if (strcmp(reqHeader.path, "/") == 0) {
                 reqHeader.path = "/index.html";
@@ -260,7 +275,7 @@ void transferFile(int socketid,int fid) {
 }
 
 int getStatusCode(struct GCRequestHeader reqHeader,int *fid,long *fsize) {
-    printf("%s ",reqHeader.path);
+    COLog("%s \n",reqHeader.path);
     string filePath = asyncSocket->rootPath+string(reqHeader.path);
     FILE *file = fopen(filePath.c_str(), "r");
     if (file == NULL) {
@@ -295,7 +310,7 @@ static string getStatusText(int code) {
     }
 }
 
-string getContentType(char *path) {
+string getContentType(const char *path) {
     if (endWith(string(path), ".js") || endWith(string(path), ".json")) {
         return "text/javascript";
     }else if (endWith(string(path), ".css")) {
