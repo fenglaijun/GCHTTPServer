@@ -40,7 +40,7 @@ struct GCRequestHeader {
 {
     self = [super init];
     if (self) {
-        serverQueue = dispatch_queue_create("GCHTTPServerQueue", NULL);
+        serverQueue = dispatch_queue_create("kCOHTTPServerQueue", NULL);
         //asyncSocket->addr = "127.0.0.1";
         asyncSocket->port = 8888;
         asyncSocket->onAccpeted += ActionBind(&onAccept);

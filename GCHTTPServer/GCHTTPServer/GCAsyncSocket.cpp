@@ -30,11 +30,7 @@ GCAsyncSocket::GCAsyncSocket() {
     port = 8888;
     addr = "0.0.0.0";//127.0.0.1
     rootPath = "";
-    sockid = socket(AF_INET, SOCK_STREAM, 0);
-    //fcntl(socketFD, F_SETFL,O_NONBLOCK);
-    int optval = 1;
-    // 允许重用本地地址和端口
-    setsockopt(sockid, SOL_SOCKET, SO_REUSEADDR,(void *)&optval, sizeof(optval));
+    sockid = 0;
 }
 
 GCAsyncSocket::~GCAsyncSocket() {
@@ -42,6 +38,13 @@ GCAsyncSocket::~GCAsyncSocket() {
 }
 
 bool GCAsyncSocket::startServer() {
+    if (sockid == 0) {
+        sockid = socket(AF_INET, SOCK_STREAM, 0);
+        //fcntl(socketFD, F_SETFL,O_NONBLOCK);
+        int optval = 1;
+        // SO_REUSEADDR：允许重用本地地址和端口
+        setsockopt(sockid, SOL_SOCKET, SO_REUSEADDR,(void *)&optval, sizeof(optval));
+    }
     if (sockid != -1) {
         sockaddr_in address = getSockAddr((char *)addr.c_str(), port);
         socklen_t addrlen = sizeof(address);
@@ -66,8 +69,10 @@ bool GCAsyncSocket::startServer() {
 }
 
 bool GCAsyncSocket::stopServer() {
-    close(sockid);
-    return false;
+    bool ret = close(sockid)==0;
+    sockid = 0;
+    isRunning = false;
+    return ret;
 }
 
 void GCAsyncSocket::beginSocketAccept() {
