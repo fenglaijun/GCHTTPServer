@@ -53,6 +53,7 @@
 		A9D493DB1DCB6F24007EE79C /* CODemoMacOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CODemoMacOSTests.m; sourceTree = "<group>"; };
 		A9D493DD1DCB6F24007EE79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D493EB1DCB7276007EE79C /* COAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = COAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D266CC081DD4889700BACADD /* CODemoMacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CODemoMacOS.entitlements; sourceTree = "<group>"; };
 		D2EC4AC61DCC8D0000552AC8 /* COWebResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = COWebResource.bundle; path = ../../GCHTTPServer/GCHTTPServer/COWebResource.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,12 +98,12 @@
 		A9D493C61DCB6F24007EE79C /* CODemoMacOS */ = {
 			isa = PBXGroup;
 			children = (
+				D266CC081DD4889700BACADD /* CODemoMacOS.entitlements */,
 				D2EC4AC61DCC8D0000552AC8 /* COWebResource.bundle */,
 				A9D493C71DCB6F24007EE79C /* AppDelegate.h */,
 				A9D493C81DCB6F24007EE79C /* AppDelegate.m */,
 				A9D493CD1DCB6F24007EE79C /* Assets.xcassets */,
 				A9D493CF1DCB6F24007EE79C /* MainMenu.xib */,
-				A9D493D21DCB6F24007EE79C /* Info.plist */,
 				A9D493CA1DCB6F24007EE79C /* Supporting Files */,
 			);
 			path = CODemoMacOS;
@@ -111,6 +112,7 @@
 		A9D493CA1DCB6F24007EE79C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A9D493D21DCB6F24007EE79C /* Info.plist */,
 				A9D493CB1DCB6F24007EE79C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -184,6 +186,11 @@
 					A9D493C31DCB6F24007EE79C = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					A9D493D61DCB6F24007EE79C = {
 						CreatedOnToolsVersion = 8.0;
@@ -311,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -352,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -362,6 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CODemoMacOS/CODemoMacOS.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CODemoMacOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -374,6 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CODemoMacOS/CODemoMacOS.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CODemoMacOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

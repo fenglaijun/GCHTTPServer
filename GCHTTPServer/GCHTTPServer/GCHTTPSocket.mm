@@ -10,6 +10,9 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <arpa/inet.h>
+#import <net/if.h>
+#import <net/if_dl.h>  
+#include <sys/sysctl.h>
 #import <unistd.h>
 #import <iostream>
 #import <string.h>
@@ -40,6 +43,9 @@ struct GCRequestHeader {
 {
     self = [super init];
     if (self) {
+        
+        getMacAddress();
+        
         serverQueue = dispatch_queue_create("kCOHTTPServerQueue", NULL);
         //asyncSocket->addr = "127.0.0.1";
         asyncSocket->port = 8888;
@@ -329,6 +335,81 @@ bool endWith(string str,const string strEnd) {
         return false;
     }
     return str.compare(str.size()-strEnd.size(),strEnd.size(),strEnd)==0;
+}
+
+const char *getMacAddress() {
+    int mib[6];
+    
+    size_t len;
+    
+    char *buf;
+    
+    unsigned char *ptr;
+    
+    struct if_msghdr *ifm;
+    
+    struct sockaddr_dl *sdl;
+    
+    
+    mib[0] = CTL_NET;
+    
+    mib[1] = AF_ROUTE;
+    
+    mib[2] = 0;
+    
+    mib[3] = AF_LINK;
+    
+    mib[4] = NET_RT_IFLIST;
+    
+    
+    if ((mib[5] = if_nametoindex("en0")) == 0) {
+        
+        printf("Error: if_nametoindex error/n");
+        
+        return NULL;
+        
+    }
+    
+    
+    if (sysctl(mib, 6, NULL, &len, NULL, 0) < 0) {
+        
+        printf("Error: sysctl, take 1/n");
+        
+        return NULL;
+        
+    }
+    
+    if ((buf = (char *)malloc(len)) == NULL) {
+        
+        printf("Could not allocate memory. error!/n");
+        
+        return NULL;
+        
+    }
+    
+    
+    
+    if (sysctl(mib, 6, buf, &len, NULL, 0) < 0) {
+        
+        printf("Error: sysctl, take 2");
+        
+        return NULL;
+        
+    }
+    
+    
+    ifm = (struct if_msghdr *)buf;
+    
+    sdl = (struct sockaddr_dl *)(ifm + 1);
+    
+    ptr = (unsigned char *)LLADDR(sdl);
+    
+    NSString *outstring = [NSString stringWithFormat:@"%u:%u:%u:%u:%u:%u", *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
+    
+    free(buf);
+    
+    return outstring.lowercaseString.UTF8String;
+    
 }
 
 @end

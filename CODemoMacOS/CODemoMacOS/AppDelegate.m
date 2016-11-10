@@ -17,6 +17,11 @@
 @property (weak) IBOutlet NSTextField *txtPort;
 @property (weak) IBOutlet NSButton *btnApply;
 @property (weak) IBOutlet NSButton *btnStart;
+@property (assign) BOOL hide;
+/**
+ 状态栏按钮
+ */
+@property (nonatomic, retain) NSStatusItem *statusItem;
 @end
 
 @implementation AppDelegate
@@ -30,10 +35,21 @@
     [httpSocket startServer];
     _txtPort.intValue = httpSocket.port;
     
-    NSString *serverURL = [NSString stringWithFormat:@"http://192.168.0.102:%d",httpSocket.port];
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:serverURL]];
+    NSString *serverURL = [NSString stringWithFormat:@"http://127.0.0.1:%d",httpSocket.port];
+
+    self.window.title = [@"内测版：running " stringByAppendingString:serverURL];
+   
+    //状态栏显示
+    self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    self.statusItem.highlightMode = YES;
+    self.statusItem.image = [NSImage imageNamed:@"status"];
+    self.statusItem.action = @selector(showApp);
     
-    self.window.title = [@"running " stringByAppendingString:serverURL];
+}
+
+- (void)showApp {
+    NSApplication *shared = [NSApplication sharedApplication];
+    [shared activateIgnoringOtherApps:YES];
 }
 
 
@@ -57,9 +73,17 @@
     }
 }
 
+- (IBAction)btnFinder:(id)sender {
+    [[NSWorkspace sharedWorkspace] openFile:httpSocket.rootPath];
+}
+
+- (IBAction)openBrowser:(id)sender {
+    NSString *serverURL = [NSString stringWithFormat:@"http://127.0.0.1:%d",httpSocket.port];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:serverURL]];
+}
+
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
-
 
 @end
