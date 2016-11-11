@@ -31,7 +31,7 @@
     httpSocket = [[GCHTTPSocket alloc] init];
     httpSocket.port = 28000;
     //NSArray<NSString *> *documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSAllDomainsMask, NO);
-    httpSocket.rootPath = [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/COHTTPServer"];
+    httpSocket.rootPath = [NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/root"];
     [httpSocket startServer];
     _txtPort.intValue = httpSocket.port;
     
