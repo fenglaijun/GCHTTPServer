@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CODemoMacOS/CODemoMacOS.xcodeproj">
+      location = "group:CODemoMacOS/APISimulator.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:GCHTTPServerDemo/GCHTTPServerDemo.xcodeproj">

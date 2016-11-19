@@ -8,9 +8,11 @@
 
 #import "AppDelegate.h"
 #import <COAsyncSocket/COAsyncSocket.h>
+#import "COViewModel.h"
 
-@interface AppDelegate () {
+@interface AppDelegate () <NSTableViewDelegate,NSTableViewDataSource,GCHTTPSocketDelegate> {
     GCHTTPSocket *httpSocket;
+    COViewModel *viewModel;
 }
 
 @property (weak) IBOutlet NSWindow *window;
@@ -22,6 +24,7 @@
  状态栏按钮
  */
 @property (nonatomic, retain) NSStatusItem *statusItem;
+@property (weak) IBOutlet NSTableView *tableView;
 @end
 
 @implementation AppDelegate
@@ -30,7 +33,7 @@
     // Insert code here to initialize your application
     httpSocket = [[GCHTTPSocket alloc] init];
     httpSocket.port = 28000;
-    //NSArray<NSString *> *documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSAllDomainsMask, NO);
+    httpSocket.delegate = self;
     httpSocket.rootPath = [NSHomeDirectory() stringByAppendingPathComponent:@"/Documents/root"];
     [httpSocket startServer];
     _txtPort.intValue = httpSocket.port;
@@ -44,6 +47,9 @@
     self.statusItem.highlightMode = YES;
     self.statusItem.image = [NSImage imageNamed:@"status"];
     self.statusItem.action = @selector(showApp);
+    
+    viewModel = [COViewModel new];
+    [self.tableView reloadData];
     
 }
 
@@ -84,6 +90,50 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+}
+
+#pragma mark NSTableViewDataSource & NSTableViewDelegate
+
+/**
+ 表格数据行数
+ */
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return viewModel.logs.count;
+}
+
+/**
+ Cell Based:获取数据
+ */
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    id obj = [viewModel.logs[row] valueForKey:tableColumn.identifier];
+    return obj == nil?@"":obj;
+}
+
+/**
+ View Based:获取数据
+ */
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    NSTableCellView *cell = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    cell.textField.stringValue = [self tableView:tableView objectValueForTableColumn:tableColumn row:row];
+    return cell;
+}
+
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+}
+
+- (void)didReciveRequest:(NSString *)requst {
+    
+    COLogModel *log = [COLogModel new];
+    log.content = requst;
+    [viewModel.logs addObject:log];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
+
+- (void)didReciveExecption:(NSException *)error {
+    [self didReciveRequest:error.reason];
 }
 
 @end

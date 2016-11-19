@@ -22,6 +22,17 @@
 		A9D493F21DCB7418007EE79C /* GCHTTPSocket.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB8D531C7EC32B0042944E /* GCHTTPSocket.mm */; };
 		A9D493F31DCB741B007EE79C /* GCAsyncSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A607ECA1C87E408007FECC7 /* GCAsyncSocket.cpp */; };
 		A9D493F41DCB741D007EE79C /* GCEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */; };
+		D2210ADD1DD9BB4F00AED232 /* COURL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2210ADB1DD9BB4F00AED232 /* COURL.cpp */; };
+		D2210ADE1DD9BB4F00AED232 /* COURL.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2210ADC1DD9BB4F00AED232 /* COURL.hpp */; };
+		D2210ADF1DD9BB5100AED232 /* COURL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2210ADB1DD9BB4F00AED232 /* COURL.cpp */; };
+		D2210AED1DD9BD0200AED232 /* CORequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2210AEB1DD9BD0200AED232 /* CORequest.cpp */; };
+		D2210AEE1DD9BD0200AED232 /* CORequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2210AEB1DD9BD0200AED232 /* CORequest.cpp */; };
+		D2210AEF1DD9BD0200AED232 /* CORequest.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2210AEC1DD9BD0200AED232 /* CORequest.hpp */; };
+		D2210AF01DD9BD0200AED232 /* CORequest.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2210AEC1DD9BD0200AED232 /* CORequest.hpp */; };
+		D2210AF31DD9BD4D00AED232 /* COResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2210AF11DD9BD4D00AED232 /* COResponse.cpp */; };
+		D2210AF41DD9BD4D00AED232 /* COResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2210AF11DD9BD4D00AED232 /* COResponse.cpp */; };
+		D2210AF51DD9BD4D00AED232 /* COResponse.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2210AF21DD9BD4D00AED232 /* COResponse.hpp */; };
+		D2210AF61DD9BD4D00AED232 /* COResponse.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2210AF21DD9BD4D00AED232 /* COResponse.hpp */; };
 		D2EC4AC31DCC88BD00552AC8 /* COWebResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D2EC4AC21DCC88BD00552AC8 /* COWebResource.bundle */; };
 		D2EC4AC41DCC8C9700552AC8 /* COWebResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D2EC4AC21DCC88BD00552AC8 /* COWebResource.bundle */; };
 /* End PBXBuildFile section */
@@ -40,6 +51,12 @@
 		A9D493B31DCB6EC9007EE79C /* COAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = COAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D493B51DCB6EC9007EE79C /* COAsyncSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COAsyncSocket.h; sourceTree = "<group>"; };
 		A9D493B61DCB6EC9007EE79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2210ADB1DD9BB4F00AED232 /* COURL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = COURL.cpp; sourceTree = "<group>"; };
+		D2210ADC1DD9BB4F00AED232 /* COURL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = COURL.hpp; sourceTree = "<group>"; };
+		D2210AEB1DD9BD0200AED232 /* CORequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CORequest.cpp; sourceTree = "<group>"; };
+		D2210AEC1DD9BD0200AED232 /* CORequest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CORequest.hpp; sourceTree = "<group>"; };
+		D2210AF11DD9BD4D00AED232 /* COResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = COResponse.cpp; sourceTree = "<group>"; };
+		D2210AF21DD9BD4D00AED232 /* COResponse.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = COResponse.hpp; sourceTree = "<group>"; };
 		D2EC4AC21DCC88BD00552AC8 /* COWebResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = COWebResource.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +118,12 @@
 				3A607ECA1C87E408007FECC7 /* GCAsyncSocket.cpp */,
 				3A607ECF1C8807CB007FECC7 /* GCEvent.hpp */,
 				3A607ECE1C8807CB007FECC7 /* GCEvent.cpp */,
+				D2210ADC1DD9BB4F00AED232 /* COURL.hpp */,
+				D2210ADB1DD9BB4F00AED232 /* COURL.cpp */,
+				D2210AEC1DD9BD0200AED232 /* CORequest.hpp */,
+				D2210AEB1DD9BD0200AED232 /* CORequest.cpp */,
+				D2210AF21DD9BD4D00AED232 /* COResponse.hpp */,
+				D2210AF11DD9BD4D00AED232 /* COResponse.cpp */,
 			);
 			path = GCHTTPServer;
 			sourceTree = "<group>";
@@ -122,9 +145,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AEB8D111C7EC17C0042944E /* GCHTTPServer.h in Headers */,
+				D2210AF51DD9BD4D00AED232 /* COResponse.hpp in Headers */,
 				3A607ED11C8807CB007FECC7 /* GCEvent.hpp in Headers */,
 				3A607ECD1C87E408007FECC7 /* GCAsyncSocket.hpp in Headers */,
 				3AEB8D541C7EC32B0042944E /* GCHTTPSocket.h in Headers */,
+				D2210AEF1DD9BD0200AED232 /* CORequest.hpp in Headers */,
+				D2210ADE1DD9BB4F00AED232 /* COURL.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,8 +160,10 @@
 			files = (
 				A9D493B71DCB6EC9007EE79C /* COAsyncSocket.h in Headers */,
 				A9D493EA1DCB7203007EE79C /* GCHTTPSocket.h in Headers */,
+				D2210AF01DD9BD0200AED232 /* CORequest.hpp in Headers */,
 				A9D493F01DCB735A007EE79C /* GCAsyncSocket.cpp in Headers */,
 				A9D493F11DCB7362007EE79C /* GCEvent.cpp in Headers */,
+				D2210AF61DD9BD4D00AED232 /* COResponse.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,8 +213,9 @@
 		3AEB8D041C7EC17C0042944E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CO;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = GC;
+				ORGANIZATIONNAME = maintoco;
 				TargetAttributes = {
 					3AEB8D0C1C7EC17C0042944E = {
 						CreatedOnToolsVersion = 7.2;
@@ -257,7 +286,10 @@
 			files = (
 				3AEB8D551C7EC32B0042944E /* GCHTTPSocket.mm in Sources */,
 				3A607ECC1C87E408007FECC7 /* GCAsyncSocket.cpp in Sources */,
+				D2210AED1DD9BD0200AED232 /* CORequest.cpp in Sources */,
 				3A607ED01C8807CB007FECC7 /* GCEvent.cpp in Sources */,
+				D2210AF31DD9BD4D00AED232 /* COResponse.cpp in Sources */,
+				D2210ADD1DD9BB4F00AED232 /* COURL.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +299,10 @@
 			files = (
 				A9D493F21DCB7418007EE79C /* GCHTTPSocket.mm in Sources */,
 				A9D493F31DCB741B007EE79C /* GCAsyncSocket.cpp in Sources */,
+				D2210AEE1DD9BD0200AED232 /* CORequest.cpp in Sources */,
 				A9D493F41DCB741D007EE79C /* GCEvent.cpp in Sources */,
+				D2210AF41DD9BD4D00AED232 /* COResponse.cpp in Sources */,
+				D2210ADF1DD9BB5100AED232 /* COURL.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

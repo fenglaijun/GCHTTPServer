@@ -185,8 +185,9 @@
 		3AEB8D191C7EC1A50042944E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CO;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = GC;
+				ORGANIZATIONNAME = maintoco;
 				TargetAttributes = {
 					3AEB8D201C7EC1A50042944E = {
 						CreatedOnToolsVersion = 7.2;

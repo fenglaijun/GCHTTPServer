@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "GCEvent.hpp"
+#include "CORequest.hpp"
 #include <iostream>
 using namespace std;
 

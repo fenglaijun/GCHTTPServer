@@ -20,10 +20,12 @@
 #import <array>
 #import <sys/stat.h>
 #import "GCAsyncSocket.hpp"
+#import "CORequest.hpp"
 using namespace std;
 
 static int socketFD;
 static bool isRuning = false;
+static GCHTTPSocket *selfCls = nil;
 unique_ptr<GCAsyncSocket> asyncSocket(new GCAsyncSocket());
 
 struct GCRequestHeader {
@@ -50,12 +52,23 @@ struct GCRequestHeader {
         //asyncSocket->addr = "127.0.0.1";
         asyncSocket->port = 8888;
         asyncSocket->onAccpeted += ActionBind(&onAccept);
+        selfCls = self;
     }
     return self;
 }
 
+- (void)log:(const char *)msg {
+    if ([selfCls.delegate respondsToSelector:@selector(didReciveRequest:)]) {
+        [selfCls.delegate didReciveRequest:[NSString stringWithUTF8String:msg]];
+    }
+}
+
 void onAccept(int sockid) {
-    recvData(sockid);
+    @try {
+        recvData(sockid);
+    } @catch (NSException *exception) {
+        [selfCls log:exception.reason.UTF8String];
+    }
 }
 
 - (int)port {
@@ -107,19 +120,6 @@ void onAccept(int sockid) {
     return asyncSocket->stopServer();
 }
 
-- (void)doAccept {
-    struct sockaddr_in sockaddr4;
-    socklen_t addrLen = sizeof(sockaddr4);
-    while (isRuning) {
-        int newSocketFD = accept(socketFD, (struct sockaddr *)&sockaddr4, &addrLen);
-        if (newSocketFD == -1) {
-            continue;
-        }else {
-            recvData(newSocketFD);
-        }
-    }
-}
-
 /// 处理请求头
 struct GCRequestHeader resolveRequestHeaders(char *buffer,bool& ifModified) {
     char* pchar = strtok(buffer, "\r\n");
@@ -163,7 +163,7 @@ struct GCRequestHeader resolveRequestHeaders(char *buffer,bool& ifModified) {
             }
         }
     }
-    
+    [selfCls log:reqHeader.path];
     return reqHeader;
 }
 
@@ -185,7 +185,7 @@ void recvData(int socketfd) {
             break;
         }
     } while (true);
-    
+    CORequest *request = new CORequest(data);
     bool ifModified;
     struct GCRequestHeader reqHeader = resolveRequestHeaders(data,ifModified);
     int fid = -1;

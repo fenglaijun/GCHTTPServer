@@ -8,7 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-#define SVR_Version "COHTTPServer/1.0"
+#define SVR_Version "COHTTPServer/1.1"
+
+@protocol GCHTTPSocketDelegate <NSObject>
+
+@optional
+
+- (void)didReciveRequest:(NSString *)requst;
+/**
+ 发生异常
+
+ @param error 错误
+ */
+- (void)didReciveExecption:(NSException *)error;
+
+@end
 
 @interface GCHTTPSocket : NSObject
 
@@ -18,6 +32,11 @@
 @property (nonatomic,assign) int port;
 /// 服务器根目录,默认为/Libray/_caches
 @property (nonatomic,copy) NSString *rootPath;
+
+/**
+ 代理
+ */
+@property (nonatomic, weak) id<GCHTTPSocketDelegate> delegate;
 
 /// 启动HTTP服务器
 - (BOOL)startServer;
