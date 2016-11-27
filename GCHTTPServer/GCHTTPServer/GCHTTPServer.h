@@ -6,6 +6,8 @@
 //  Copyright © 2016年 GC. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 //! Project version number for GCHTTPServer.
 FOUNDATION_EXPORT double GCHTTPServerVersionNumber;
 

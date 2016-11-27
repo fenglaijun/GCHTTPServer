@@ -26,7 +26,8 @@
     
     // Do any additional setup after loading the view, typically from a nib.
     httpSocket = [[GCHTTPSocket alloc] init];
-    httpSocket.rootPath = [[NSBundle mainBundle] pathForResource:@"WebResource.bundle" ofType:nil];
+    httpSocket.port = 28000;
+    httpSocket.rootPath = [NSHomeDirectory() stringByAppendingString:@"/Documents/webRoot"];
     [httpSocket startServer];
     [self performSelector:@selector(loadWebView) withObject:nil afterDelay:5];
     [self.view bringSubviewToFront:self.webView];
@@ -55,7 +56,7 @@
 
 - (void)loadWebView {
     __weak typeof(self) self_weak = self;
-    __block NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8888/index.html"];
+    __block NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:28000"];
     [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSString *html = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         [self_weak.webView loadHTMLString:html baseURL:url];
